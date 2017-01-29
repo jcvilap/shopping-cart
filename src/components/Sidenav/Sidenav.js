@@ -14,6 +14,7 @@ export default class Sidenav extends React.Component {
         return (
             <Drawer open={this.props.open} onRequestChange={(open) => this.setState({open})}>
                 <AppBar
+                    className={'SidenavBar'}
                     title="eShop"
                     iconElementLeft={<IconButton><NavigationClose /></IconButton>}
                     onLeftIconButtonTouchTap={this.props.onToggle}

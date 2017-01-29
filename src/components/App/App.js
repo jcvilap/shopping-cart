@@ -3,9 +3,10 @@
  */
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import baseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
+
+import theme from '../../theme/theme';
 import Sidenav from '../Sidenav/Sidenav';
 import './App.css';
 
@@ -32,7 +33,8 @@ export default class App extends React.Component {
     }
 
     getChildContext() {
-        return {muiTheme: getMuiTheme(baseTheme)};
+        console.log(theme);
+        return {muiTheme: getMuiTheme(theme)};
     }
 
     static get childContextTypes() {
