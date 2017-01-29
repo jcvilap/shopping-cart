@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
-import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
+import baseTheme from 'material-ui/styles/baseThemes/darkBaseTheme';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
 import injectTapEventPlugin from 'react-tap-event-plugin';
 import Sidenav from '../Sidenav/Sidenav';
@@ -18,17 +18,17 @@ export default class App extends React.Component {
         injectTapEventPlugin();
     }
 
-    handleToggle() {
-        this.setState({open: !this.state.open});
-    }
-
     render() {
         return (
             <div className="App">
-                <AppBar title="eShop" onLeftIconButtonTouchTap={this.handleToggle.bind(this)}/>
-                <Sidenav open={this.state.open} onToggle={this.handleToggle.bind(this)}/>
+                <AppBar title="eShop" onLeftIconButtonTouchTap={this.toggle.bind(this)}/>
+                <Sidenav open={this.state.open} onToggle={this.toggle.bind(this)}/>
             </div>
         );
+    }
+
+    toggle() {
+        this.setState({open: !this.state.open});
     }
 
     getChildContext() {
