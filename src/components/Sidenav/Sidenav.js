@@ -2,6 +2,7 @@
  * Created by juliocvila on 1/28/17.
  */
 import React from 'react';
+import {Link} from 'react-router';
 import AppBar from 'material-ui/AppBar';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
@@ -19,11 +20,9 @@ export default class Sidenav extends React.Component {
                     iconElementLeft={<IconButton><NavigationClose /></IconButton>}
                     onLeftIconButtonTouchTap={this.props.onToggle}
                 />
-                <MenuItem className="pink">Menu Item</MenuItem>
-                <MenuItem>Menu Item</MenuItem>
-                <MenuItem>Menu Item</MenuItem>
-                <MenuItem>Menu Item</MenuItem>
-                <MenuItem>Menu Item</MenuItem>
+                <MenuItem><Link to={'/products'}>Product List</Link></MenuItem>
+                <MenuItem><Link to={'/products/hello'}>Product Detail</Link></MenuItem>
+                <MenuItem><Link to={'/checkout'}>Check Out</Link></MenuItem>
             </Drawer>
         );
     }
