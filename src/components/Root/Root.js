@@ -34,7 +34,6 @@ export default class Root extends React.Component {
     }
 
     getChildContext() {
-        console.log(theme);
         return {muiTheme: getMuiTheme(theme)};
     }
 
