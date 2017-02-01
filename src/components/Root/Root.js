@@ -4,14 +4,14 @@
 import React from 'react';
 import {Router, Route, browserHistory, IndexRedirect} from 'react-router';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import theme from '../../theme/theme';
 import App from '../App/App';
 import CheckOut from '../CheckOut/CheckOut';
 import ProductDetail from '../ProductDetails/ProductDetails';
 import ProductList from '../ProductList/ProductList';
-import injectTapEventPlugin from 'react-tap-event-plugin';
-
+import '../../reducers/products';
 export default class Root extends React.Component {
     constructor(props) {
         super(props);
