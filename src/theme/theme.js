@@ -5,6 +5,6 @@ import baseTheme from 'material-ui/styles/baseThemes/lightBaseTheme';
  */
 export default Object.assign(baseTheme, {
     appBar: {
-        color: '#00bcd4'
+        color: 'black'
     },
 });
