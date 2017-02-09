@@ -14,3 +14,6 @@ Create 3 pages with the following:
   - Add 'related products' to the individual product page (perhaps via color, brand, name, description, etc.)
 
 [API]: <https://api.bestbuy.com/v1/products((categoryPath.id=abcat0502000))?apiKey=3z6a6dd2jyfjtrpkhdbsaayk&sort=bestSellingRank.asc&show=bestSellingRank,color,customerReviewAverage,image,name,onSale,percentSavings,regularPrice,salePrice,shortDescription,sku,thumbnailImage,longDescription&pageSize=100&format=json>
+
+#### Rest API documentation:
+```https://bestbuyapis.github.io/api-documentation/?javascript```
