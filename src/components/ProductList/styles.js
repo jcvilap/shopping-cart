@@ -1,15 +1,11 @@
-/**
- * Created by juliocvila on 2/8/17.
- */
 export const styles = {
     root: {
         display: 'flex',
         flexWrap: 'wrap',
         justifyContent: 'space-around',
+        padding: '20px'
     },
-    gridList: {
-        width: 500,
-        height: 450,
-        overflowY: 'auto',
-    },
+    tileProps: {
+        titleBackground: "linear-gradient(to bottom, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+    }
 };

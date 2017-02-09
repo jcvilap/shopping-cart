@@ -10,10 +10,12 @@ import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/chevron-left';
 import './Sidenav.css';
 
-export default class Sidenav extends React.Component {
+class Sidenav extends React.Component {
     render() {
         return (
-            <Drawer open={this.props.open} onRequestChange={(open) => this.setState({open})}>
+            <Drawer
+                open={this.props.open} docked={this.props.docked}
+                onRequestChange={(open) => this.setState({open})}>
                 <AppBar
                     className={'SidenavBar'}
                     title="eShop"
@@ -27,3 +29,5 @@ export default class Sidenav extends React.Component {
         );
     }
 }
+
+export default Sidenav;
