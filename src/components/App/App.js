@@ -1,6 +1,3 @@
-/**
- * Created by juliocvila on 1/28/17.
- */
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
 
@@ -16,7 +13,7 @@ export default class App extends React.Component {
     render() {
         return (
             <div className="App">
-                <AppBar title="eShop" onLeftIconButtonTouchTap={this.toggle.bind(this)}/>
+                <AppBar style={{position: 'fixed'}} title="eShop" onLeftIconButtonTouchTap={this.toggle.bind(this)}/>
                 <Sidenav open={this.state.open} docked={this.state.docked} onToggle={this.toggle.bind(this)}/>
                 <div style={this.state.style}>{this.props.children}</div>
             </div>
@@ -60,9 +57,10 @@ export default class App extends React.Component {
     }
 
     getStyle(isOpen) {
-        return isOpen ?
+        let style = isOpen ?
             {width: 'calc(100% - 256px)', marginLeft: '256px'} :
             {width: '100%', marginLeft: 'initial'};
+        return Object.assign({paddingTop: '60px'}, style);
     }
 
 }
