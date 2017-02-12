@@ -12,18 +12,17 @@ import {styles} from './styles';
 class ProductList extends React.Component {
     render() {
         if (this.props.products.error || this.props.products.fetching) {
-            return (<div><CircularProgress style={{padding: '30%'}} size={80} thickness={10} /></div>);
+            return (<div><CircularProgress style={{padding: '30%'}} size={80} thickness={10}/></div>);
         } else {
             this.data = this.props.products.data;
-            let count = 0;
             return (
                 <div style={styles.root}>
-                    <GridList
-                        cols={4} padding={5}
-                        style={styles.gridList}>
+                    <GridList cols={4} padding={5}>
                         {this.data.products.map((tile) => (
                             <GridTile
-                                key={count++} title={tile.name}
+                                style={styles.gridTile}
+                                onClick={() => this.goToDetails(tile)}
+                                key={tile.sku} title={tile.name}
                                 subtitle={tile.shortDescription}
                                 actionIcon={<IconButton><StarBorder color="white"/></IconButton>}
                                 actionPosition="left" titlePosition="bottom"
@@ -35,6 +34,10 @@ class ProductList extends React.Component {
                 </div>
             );
         }
+    }
+
+    goToDetails(tile) {
+        this.props.router.push(`/products/${tile.sku}`);
     }
 
     static getProducts() {

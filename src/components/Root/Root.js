@@ -29,7 +29,7 @@ export default class Root extends React.Component {
                 <Route path={'/'} component={App}>
                     <IndexRedirect to={'products'} />
                     <Route path={'products'} component={ProductList} onEnter={ProductList.getProducts}/>
-                    <Route path={'products/:id'} component={ProductDetail} />
+                    <Route path={'products/:sku'} component={ProductDetail} onEnter={ProductDetail.getProductDetails}/>
                     <Route path={'checkout'} component={CheckOut} />
                 </Route>
             </Router>
