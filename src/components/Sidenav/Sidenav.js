@@ -22,7 +22,6 @@ class Sidenav extends React.Component {
                     onLeftIconButtonTouchTap={this.props.onToggle}
                 />
                 <MenuItem><Link to={'/products'}>Product List</Link></MenuItem>
-                <MenuItem><Link to={'/products/hello'}>Product Detail</Link></MenuItem>
                 <MenuItem><Link to={'/checkout'}>Check Out</Link></MenuItem>
             </Drawer>
         );
