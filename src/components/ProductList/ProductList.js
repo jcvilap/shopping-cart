@@ -4,16 +4,15 @@ import axios from 'axios';
 import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
+import CircularProgress from 'material-ui/CircularProgress';
 import store from '../../store';
 import {PRODUCT_URL} from './constants';
 import {styles} from './styles';
 
 class ProductList extends React.Component {
     render() {
-        if (this.props.products.error) {
-            return (<div>error</div>);
-        } else if (this.props.products.fetching) {
-            return (<div>loading</div>);
+        if (this.props.products.error || this.props.products.fetching) {
+            return (<div><CircularProgress style={{padding: '30%'}} size={80} thickness={10} /></div>);
         } else {
             this.data = this.props.products.data;
             let count = 0;
