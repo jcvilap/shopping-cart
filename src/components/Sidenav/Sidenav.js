@@ -17,8 +17,7 @@ class Sidenav extends React.Component {
                 open={this.props.open} docked={this.props.docked}
                 onRequestChange={(open) => this.setState({open})}>
                 <AppBar
-                    className={'SidenavBar'}
-                    title="eShop"
+                    className={'SidenavBar'} title="eShop"
                     iconElementLeft={<IconButton><NavigationClose /></IconButton>}
                     onLeftIconButtonTouchTap={this.props.onToggle}
                 />
