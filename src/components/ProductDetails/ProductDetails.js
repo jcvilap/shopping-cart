@@ -18,7 +18,7 @@ class ProductDetails extends React.Component {
                     <CardHeader title={this.data.albumTitle} subtitle={this.data.shortDescription}/>
                     <CardMedia
                         overlay={<CardTitle title={this.data.albumTitle} subtitle={this.data.shortDescription} />}>
-                        <img src={this.data.largeImage} role="presentation"/>
+                        <img src={this.data.largeFrontImage} role="presentation"/>
                     </CardMedia>
                     <CardTitle title={this.data.albumTitle} subtitle={this.data.shortDescription}  />
                     <CardText>{this.data.longDescription}</CardText>
