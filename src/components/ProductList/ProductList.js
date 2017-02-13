@@ -17,7 +17,7 @@ class ProductList extends React.Component {
             this.data = this.props.products.data;
             return (
                 <div style={styles.root}>
-                    <GridList cols={4} padding={5}>
+                    <GridList cols={4} padding={20}>
                         {this.data.products.map((tile) => (
                             <GridTile
                                 style={styles.gridTile}
