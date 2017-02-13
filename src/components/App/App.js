@@ -2,7 +2,7 @@ import React from 'react';
 import AppBar from 'material-ui/AppBar';
 
 import Sidenav from '../Sidenav/Sidenav';
-import './App.css';
+import {styles} from './styles';
 
 export default class App extends React.Component {
     constructor(props) {
@@ -58,9 +58,9 @@ export default class App extends React.Component {
 
     getStyle(isOpen) {
         let style = isOpen ?
-            {width: 'calc(100% - 256px)', marginLeft: '256px'} :
-            {width: '100%', marginLeft: 'initial'};
-        return Object.assign({paddingTop: '60px'}, style);
+            {width: 'calc(100% - 296px)', marginLeft: '256px'} :
+            {width: 'calc(100% - 40px)', marginLeft: 'initial'};
+        return Object.assign(style, styles.root);
     }
 
 }
