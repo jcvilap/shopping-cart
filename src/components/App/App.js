@@ -1,6 +1,9 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
+import FlatButton from 'material-ui/FlatButton';
+import ShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
 
+import store from '../../store';
 import Sidenav from '../Sidenav/Sidenav';
 import {styles} from './styles';
 
@@ -8,12 +11,25 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {open: true, docked: true};
+        this.setCartCount();
     }
 
     render() {
         return (
             <div>
-                <AppBar style={{position: 'fixed'}} title="eShop" onLeftIconButtonTouchTap={this.toggle.bind(this)}/>
+                <AppBar
+                    style={{position: 'fixed'}} title="eShop"
+                    onLeftIconButtonTouchTap={this.toggle.bind(this)}
+                    iconElementRight={
+                        <FlatButton
+                            href="https://github.com/callemall/material-ui"
+                            target="_blank"
+                            label={this.count}
+                            secondary={true}
+                            icon={<ShoppingCart />}
+                        />
+                    }
+                />
                 <Sidenav open={this.state.open} docked={this.state.docked} onToggle={this.toggle.bind(this)}/>
                 <div style={this.state.style}>{this.props.children}</div>
             </div>
@@ -63,4 +79,9 @@ export default class App extends React.Component {
         return Object.assign(style, styles.root);
     }
 
+    setCartCount() {
+        store
+            .map(state => state.cart.length)
+            .subscribe(count => this.count = count);
+    }
 }
