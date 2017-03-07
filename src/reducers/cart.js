@@ -3,12 +3,12 @@ export default (state = new Map(), action) => {
         case 'ADD_ITEM_TO_CART':
             let i = state.get(action.payload.sku) || {value: action.payload, count: 0};
             i.count++;
-            state.add(i);
+            state.set(i.value.sku, i);
             return Object.assign({}, state);
         case 'REMOVE_ITEM_TO_CART':
             let item = state.get(action.payload.sku) || {value: action.payload, count: 0};
             item.count && item.count--;
-            state.add(item);
+            state.set(item.value.sku, item);
             return Object.assign({}, state);
         default:
             return state;

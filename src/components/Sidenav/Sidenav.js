@@ -1,6 +1,3 @@
-/**
- * Created by juliocvila on 1/28/17.
- */
 import React from 'react';
 import {Link} from 'react-router';
 import AppBar from 'material-ui/AppBar';

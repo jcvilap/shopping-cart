@@ -1,17 +1,16 @@
 import React from 'react';
 import AppBar from 'material-ui/AppBar';
+import {connect} from 'react-redux';
 import FlatButton from 'material-ui/FlatButton';
 import ShoppingCart from 'material-ui/svg-icons/action/shopping-cart';
 
-import store from '../../store';
 import Sidenav from '../Sidenav/Sidenav';
 import {styles} from './styles';
 
-export default class App extends React.Component {
+class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {open: true, docked: true};
-        this.setCartCount();
     }
 
     render() {
@@ -24,7 +23,7 @@ export default class App extends React.Component {
                         <FlatButton
                             href="https://github.com/callemall/material-ui"
                             target="_blank"
-                            label={this.count}
+                            label={`${this.props.cart.size} items`}
                             secondary={true}
                             icon={<ShoppingCart />}
                         />
@@ -63,7 +62,7 @@ export default class App extends React.Component {
         let belowLimits = window.innerWidth < 1024;
         let isOpen = false;
 
-        if (belowLimits){
+        if (belowLimits) {
             isOpen = !this.state.docked ? isStateOpen : false;
             this.setState({open: isOpen, docked: !belowLimits, style: this.getStyle(false)});
         } else {
@@ -78,10 +77,6 @@ export default class App extends React.Component {
             {width: 'calc(100% - 40px)', marginLeft: 'initial'};
         return Object.assign(style, styles.root);
     }
-
-    setCartCount() {
-        store
-            .map(state => state.cart.length)
-            .subscribe(count => this.count = count);
-    }
 }
+
+export default connect(({cart}) => ({cart}))(App);

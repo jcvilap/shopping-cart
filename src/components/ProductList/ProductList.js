@@ -5,7 +5,7 @@ import {GridList, GridTile} from 'material-ui/GridList';
 import IconButton from 'material-ui/IconButton';
 import StarBorder from 'material-ui/svg-icons/toggle/star-border';
 import CircularProgress from 'material-ui/CircularProgress';
-import store from '../../store';
+import {store} from '../../store';
 import {PRODUCT_URL} from './constants';
 import {styles} from './styles';
 
@@ -27,7 +27,7 @@ class ProductList extends React.Component {
                                 actionIcon={<IconButton><StarBorder color="white"/></IconButton>}
                                 actionPosition="left" titlePosition="bottom"
                                 titleBackground={styles.tileProps.titleBackground}>
-                                <img src={tile.image} role="presentation"/>
+                                <img src={tile.image} alt=""/>
                             </GridTile>
                         ))}
                     </GridList>

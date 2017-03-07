@@ -2,33 +2,63 @@ import React from 'react';
 import {connect} from 'react-redux';
 import CircularProgress from 'material-ui/CircularProgress';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
+import Snackbar from 'material-ui/Snackbar';
 import FlatButton from 'material-ui/FlatButton';
-import store from '../../store';
+import {store} from '../../store';
 import {PRODUCT_DETAILS_URL} from './constants';
 import axios from 'axios';
 
 class ProductDetails extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {snackBarOpen: false};
+    }
+
     render() {
         if (this.props.productDetails.error || this.props.productDetails.fetching) {
             return (<div><CircularProgress style={{padding: '30%'}} size={80} thickness={10}/></div>);
         } else {
             this.data = this.props.productDetails.data;
             return (
-               <Card>
-                    <CardHeader title={this.data.albumTitle} subtitle={this.data.shortDescription}/>
-                    <CardMedia
-                        overlay={<CardTitle title={this.data.albumTitle} subtitle={this.data.shortDescription} />}>
-                        <img src={this.data.largeFrontImage} role="presentation"/>
-                    </CardMedia>
-                    <CardTitle title={this.data.albumTitle} subtitle={this.data.shortDescription}  />
-                    <CardText>{this.data.longDescription}</CardText>
-                    <CardActions>
-                        <FlatButton label="Back to List" />
-                        <FlatButton label="Add To Cart" />
-                    </CardActions>
-                </Card>
+                <div>'
+                    <Card>
+                        <CardHeader title={this.data.albumTitle} subtitle={this.data.shortDescription}/>
+                        <CardMedia
+                            overlay={<CardTitle title={this.data.albumTitle} subtitle={this.data.shortDescription} />}>
+                            <img src={this.data.largeFrontImage} alt=""/>
+                        </CardMedia>
+                        <CardTitle title={this.data.albumTitle} subtitle={this.data.shortDescription}  />
+                        <CardText>{this.data.longDescription}</CardText>
+                        <CardActions>
+                            <FlatButton label="Back to List" />
+                            <FlatButton label="Add To Cart" onClick={this.addToCart.bind(this)}/>
+                        </CardActions>
+                    </Card>
+                    <Snackbar
+                        open={this.state.snackBarOpen}
+                        message="Event added to your calendar"
+                        autoHideDuration={3000}
+                        onRequestClose={this.handleRequestClose.bind(this)}
+                    />
+                </div>
             );
         }
+    }
+
+    addToCart() {
+        store.dispatch({
+            type: 'ADD_ITEM_TO_CART',
+            payload: this.data
+        });
+        this.showSnackBar();
+    }
+
+    showSnackBar() {
+        this.setState({snackBarOpen: true,});
+    }
+
+    handleRequestClose() {
+        this.setState({snackBarOpen: false,});
     }
 
     static getProductDetails(nextState) {

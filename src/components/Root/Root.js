@@ -1,9 +1,3 @@
-/**
-
- * Created by juliocvila on 1/28/17.
-
- */
-
 import React from 'react';
 import {Router, Route, browserHistory, IndexRedirect} from 'react-router';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';

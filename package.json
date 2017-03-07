@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
-    "react-scripts": "0.8.5"
+    "babel-preset-env": "^1.2.1",
+    "react-scripts": "0.9.4"
   },
   "dependencies": {
     "axios": "^0.15.3",
