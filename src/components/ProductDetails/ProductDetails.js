@@ -1,5 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux';
+import {Link} from 'react-router';
+
 import CircularProgress from 'material-ui/CircularProgress';
 import {Card, CardActions, CardHeader, CardMedia, CardTitle, CardText} from 'material-ui/Card';
 import Snackbar from 'material-ui/Snackbar';
@@ -30,7 +32,9 @@ class ProductDetails extends React.Component {
                         <CardTitle title={this.data.albumTitle} subtitle={this.data.shortDescription}  />
                         <CardText>{this.data.longDescription}</CardText>
                         <CardActions>
-                            <FlatButton label="Back to List" />
+                            <FlatButton>
+                                <Link to={'/products'}>Back to Product List</Link>
+                            </FlatButton>
                             <FlatButton label="Add To Cart" onClick={this.addToCart.bind(this)}/>
                         </CardActions>
                     </Card>

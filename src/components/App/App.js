@@ -23,7 +23,7 @@ class App extends React.Component {
                         <FlatButton
                             href="https://github.com/callemall/material-ui"
                             target="_blank"
-                            label={`${this.props.cart.size} items`}
+                            label={`${this.props.cart.size} product${this.props.cart.size !== 1 ? 's' : ''}`}
                             secondary={true}
                             icon={<ShoppingCart />}
                         />
