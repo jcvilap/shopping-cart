@@ -1,6 +1,7 @@
 # shopping-cart
 Sample product/shopping cart app built with ReactJS, Redux, Material Design and ES6 
 
+## User Story - Reuquirements
 Create 3 pages with the following:
 
   - HomePage (Product List): make an API call, and list all 100 products from the following: [API] 
